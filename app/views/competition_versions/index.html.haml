@@ -1,0 +1,37 @@
+.container
+  .clearfix.mb-2
+    %h1.float-left
+      = "#{@competition.title} Versions"
+  .d-flex.flex-row.justify-content-start
+    = form_tag competition_competition_versions_path, method: :get, class: "float-right" do
+      = check_box_tag "display_archive", 1 , @display_archive.present?
+      = label_tag "display_archive", "Show archived items", class: "mr-1"
+      = submit_tag  "Refresh", class: 'btn btn-primary'
+    - if current_user.admin?
+      = link_to 'New Version', new_competition_competition_version_path, class: 'btn btn-primary ml-auto'
+  %table.table.mt-5
+    %thead
+      %tr
+        %th Version
+        %th Dataset Location
+        %th Size
+        %th Number of Predictions
+        %th Note
+        %th Created At
+    %tbody
+      - @competition_versions.each do |gv|
+        %tr{class: row_background_color(gv)}
+          %td= link_to gv.version, competition_version_predict_logs_path(gv.id)
+          %td= gv.dataset_location
+          %td= gv.answer_data_size
+          %td= gv.predict_logs.count
+          %td= gv.note
+          %td= gv.created_at
+          - if current_user.admin?
+            %td
+              .dropdown
+                %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
+                .dropdown-menu
+                  = link_to 'Edit', edit_competition_version_path(gv), class: 'dropdown-item'
+  .d-flex.flex-row.justify-content-end
+    = link_to "Go back to Competitions index", competitions_path, class: 'btn btn-primary'

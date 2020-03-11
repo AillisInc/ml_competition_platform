@@ -1,0 +1,11 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to 'ML Competition', root_path, class: 'nav-link'
+    - if user_signed_in?
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to 'Edit Profile', edit_account_path, class: 'nav-link'
+        %li.nav-item
+          = link_to 'Sign out', destroy_user_session_path, class: 'nav-link', method: :delete

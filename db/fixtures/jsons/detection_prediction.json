@@ -1,0 +1,44 @@
+[
+  {
+    "image_file_name": "0001.jpg",
+    "annotations": [
+      {
+        "class": "dog",
+        "conf": 0.7,
+        "xmin": 105,
+        "ymin": 105,
+        "xmax": 205,
+        "ymax": 205
+      },
+      {
+        "class": "dog",
+        "conf": 0.6,
+        "xmin": 125,
+        "ymin": 125,
+        "xmax": 225,
+        "ymax": 225
+      }
+    ]
+  },
+  {
+    "image_file_name": "0002.jpg",
+    "annotations": [
+      {
+        "class": "cat",
+        "conf": 0.8,
+        "xmin": 102,
+        "ymin": 102,
+        "xmax": 202,
+        "ymax": 202
+      },
+      {
+        "class": "flower",
+        "conf": 0.78,
+        "xmin": 124,
+        "ymin": 124,
+        "xmax": 224,
+        "ymax": 224
+      }
+    ]
+  }
+]

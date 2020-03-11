@@ -1,0 +1,33 @@
+- competition = @predict_log.competition_version.competition
+- metrics = @predict_log.metrics
+.container
+  %h1.mb-5
+    Prediction details
+
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"} Key
+        %th{:scope => "col"} Value
+    %tbody
+      %tr
+        %th User
+        %td{:scope => "row"}= @predict_log.user.name
+      - competition.metrics_keys.each do |key|
+        %tr
+          %th{:scope => "row"}= key
+          %td= PredictLog.format_metrics(metrics[key])
+      %tr
+        %th GitHub
+        %td{:scope => "row"}= "#{@predict_log.repository_name}"
+      %tr
+        %th Commit hash
+        %td{:scope => "row"}= "#{@predict_log.commit_hash}"
+      %tr
+        %th Note
+        %td{:scope => "row"}= simple_format(@predict_log.note)
+      %tr
+        %th Created At
+        %td{:scope => "row"}= @predict_log.created_at
+  .d-flex.flex-row.justify-content-end
+    = link_to "Go back to prediction index", competition_version_predict_logs_path(@predict_log.competition_version), class: 'btn btn-primary'

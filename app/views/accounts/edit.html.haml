@@ -1,0 +1,14 @@
+.container
+  %h1 Your profile
+  = form_for(@user, url: account_path, html: { method: :put }) do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :email
+      = f.text_field :email, autocomplete: 'email', class: 'form-control'
+    .form-group
+      = f.label :role
+      %div= @user.role
+    .form-group
+      = f.submit '保存', class: 'btn btn-primary'

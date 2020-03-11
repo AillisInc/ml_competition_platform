@@ -1,0 +1,21 @@
+.form-group
+  = f.label :version
+  = f.text_field :version, class: 'form-control'
+  .form-group
+    = f.label :dataset_location
+    = f.text_field :dataset_location, class: 'form-control'
+  - if is_new
+    .form-group
+      = label_tag "Upload JSON file"
+      = file_field_tag :file, accept: ".json, text/json", class: "form-control-file"
+  .form-group
+    = f.label :note
+    = f.text_area :note, class: 'form-control'
+  .form-group.form-check
+    = f.check_box :remark, class: 'form-check-input'
+    = f.label :remark, class: 'form-check-label'
+  .form-group.form-check
+    = f.check_box :archived, class: 'form-check-input'
+    = f.label :archived, class: 'form-check-label'
+  .form-group
+    = f.submit  "Send", class: 'btn btn-primary'

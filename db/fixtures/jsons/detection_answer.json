@@ -1,0 +1,40 @@
+[
+  {
+    "image_file_name": "0001.jpg",
+    "annotations": [
+      {
+        "class": "person",
+        "xmin": 100,
+        "ymin": 100,
+        "xmax": 200,
+        "ymax": 200
+      },
+      {
+        "class": "dog",
+        "xmin": 120,
+        "ymin": 120,
+        "xmax": 220,
+        "ymax": 220
+      }
+    ]
+  },
+  {
+    "image_file_name": "0002.jpg",
+    "annotations": [
+      {
+        "class": "cat",
+        "xmin": 100,
+        "ymin": 100,
+        "xmax": 200,
+        "ymax": 200
+      },
+      {
+        "class": "flower",
+        "xmin": 120,
+        "ymin": 120,
+        "xmax": 220,
+        "ymax": 220
+      }
+    ]
+  }
+]

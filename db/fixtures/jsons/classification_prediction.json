@@ -1,0 +1,42 @@
+[
+  {
+    "item_id": "0001",
+    "probability": 0.3235298655783375
+  },
+  {
+    "item_id": "0002",
+    "probability": 0.85590449562403781
+  },
+  {
+    "item_id": "0003",
+    "probability": 0
+  },
+  {
+    "item_id": "0004",
+    "probability": 0.14092035910723721
+  },
+  {
+    "item_id": "0005",
+    "probability": 0.9804300644869242
+  },
+  {
+    "item_id": "0006",
+    "probability": 0.914899699619688
+  },
+  {
+    "item_id": "0007",
+    "probability": 0.864730439996237
+  },
+  {
+    "item_id": "0008",
+    "probability": 0.7806685940126118
+  },
+  {
+    "item_id": "0009",
+    "probability": 0.5728933039984874
+  },
+  {
+    "item_id": "0010",
+    "probability": 0.5408474294869257
+  }
+]

@@ -1,0 +1,7 @@
+.container
+  %h1.mb-5
+    = "Create New Version at #{@competition.title}"
+
+  = form_for [@competition, CompetitionVersion.new], html: { multipart: true } do |f|
+    = render 'shared/form_error', error_messages: @error_messages
+    = render 'form', f: f, is_new: true

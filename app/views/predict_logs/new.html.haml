@@ -1,0 +1,21 @@
+
+.container
+  %h1.mb-5
+    Submit Prediction
+
+  = form_for [@competition_version, PredictLog.new], html: { multipart: true } do |f|
+    = render 'shared/form_error', error_messages: @error_messages
+    .form-group
+      = label_tag "Upload JSON file"
+      = file_field_tag :file, accept: ".json, text/json", class: 'form-control-file'
+    .form-group
+      = f.label :repository_name
+      = f.text_field :repository_name, class: 'form-control'
+    .form-group
+      = f.label :commit_hash
+      = f.text_field :commit_hash, class: 'form-control'
+    .form-group
+      = f.label :note
+      = f.text_area :note, class: 'form-control', rows: 10
+    .form-group
+      = f.submit  "Send", class: 'btn btn-primary'

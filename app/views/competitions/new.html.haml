@@ -1,0 +1,20 @@
+.container
+  %h1.mb-5
+    Create New Competition
+
+  = form_for Competition.new do |f|
+    = render 'shared/form_error', error_messages: @error_messages
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :metrics_type
+      = f.select :metrics_type, Competition.metrics_types.keys, {include_blank: true}, class: 'form-control'
+    .form-group
+      = f.label :note
+      = f.text_area :note, class: 'form-control'
+    .form-group.form-check
+      = f.check_box :remark, class: 'form-check-input'
+      = f.label :remark, class: 'form-check-label'
+    .form-group
+      = f.submit  "Send", class: 'btn btn-primary'

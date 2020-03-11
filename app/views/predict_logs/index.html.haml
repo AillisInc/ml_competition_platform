@@ -1,0 +1,33 @@
+.container
+  .clearfix
+    %h1.float-left= "Predict Logs : #{@competition_version.competition.title}(#{@competition_version.version})"
+  .clearfix
+    = link_to 'Submit New Prediction', new_competition_version_predict_log_path(@competition_version), class: 'btn btn-primary float-right'
+    .d-flex.flex-row
+      .mr-2.mt-auto.mb-auto
+        = "Dataset Location : #{@competition_version.dataset_location}"
+  %table.table.mt-4
+    %thead
+      %tr
+        %th User
+        - @competition_version.competition.metrics_keys.each do |key|
+          - icon = key== params[:sort] ? ' ▼' : ''
+          %th= link_to key + icon, competition_version_predict_logs_path(@competition_version, sort: key), style: 'white-space: nowrap'
+        %th Created At
+    %tbody
+      - @predict_logs.each do |log|
+        - metrics = log.metrics
+        %tr
+          %td= log.user.name
+          - @competition_version.competition.metrics_keys.each do |key|
+            %td= link_to PredictLog.format_metrics(metrics[key]), predict_log_path(log)
+          %td= log.created_at.to_s
+          - if current_user == log.user || current_user.admin?
+            %td
+              .dropdown
+                %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
+                .dropdown-menu
+                  = link_to 'Edit', edit_predict_log_path(log), class: 'dropdown-item'
+                  = link_to 'Delete', predict_log_path(log), method: :delete, class: 'dropdown-item text-danger', data: {confirm: 'Are you sure?'}
+  .d-flex.flex-row.justify-content-end
+    = link_to "Go back to version index", competition_competition_versions_path(@competition_version.competition), class: 'btn btn-primary'

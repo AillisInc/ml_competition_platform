@@ -1,0 +1,17 @@
+%h1= t('.sign_up')
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = bootstrap_devise_error_messages!
+  .form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
+    - if @minimum_password_length
+      %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
+  .form-group
+    = f.submit t('.sign_up'), class: 'btn btn-primary'
+= render 'devise/shared/links'
