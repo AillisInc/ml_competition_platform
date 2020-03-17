@@ -28,8 +28,13 @@ https://demo-ml-competition-platform.herokuapp.com/
 ## How to setup development environment
 
 ### Deploy API server
-- Deploy [API server](https://github.com/AillisInc/ml_competition_api_server) to calculate metrics for competition according to the following steps
-- https://github.com/AillisInc/ml_competition_api_server/blob/master/README.md
+- Clone codes of [API Server](https://github.com/AillisInc/ml_competition_api_server) to calculate metrics for competition
+  ```bash
+  git clone https://github.com/AillisInc/ml_competition_platform.git
+  ```
+
+- Deploy API server according to the following steps
+  - https://github.com/AillisInc/ml_competition_api_server/blob/master/README.md
 
 ### Setup environment variables.
 
@@ -45,11 +50,11 @@ METRICS_API_AUTH_KEY=secret_key  # In production environment, a strong key is re
 ```
 
 #### About `METRICS_API_AUTH_KEY`
-- METRICS_API_AUTH_KEY is used for authorization with API server to calculate metrics 
-- Therefore, in production environment, `METRICS_API_AUTH_KEY` value that cannot be easily guessed is recommended.
+- `METRICS_API_AUTH_KEY` is used for authorization with API server to calculate metrics 
+- Therefore, in production environment, it is recommended to use `METRICS_API_AUTH_KEY` value that cannot be easily guessed.
 - `METRICS_API_AUTH_KEY` value should be matched to `API_KEY_TOKEN` value in API server
 
-
+### Build docker container with docker-compose
 ```bash
 $ docker-compose run web bundle install
 $ docker-compose run web rails db:setup
@@ -72,7 +77,7 @@ User.create(email: 'test@example.com', password: 'password', name: "test_user", 
 
 ## Web API to calculate metrics
 - To calculate metrics to determine ranking of each competitor, Web API written in Flask should be also deployed.
-- The URL of this Web API server is [here](https://github.com/AillisInc/ml_competition_api_server)
+- The github code of this Web API server is [here](https://github.com/AillisInc/ml_competition_api_server)
  
 ## License
 MIT
