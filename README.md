@@ -4,9 +4,7 @@
 - Machine learning platform just like private Kaggle written in Ruby on Rails framework.
 
 ## Overall Architecture
-- English version is currently in the making.
-
-<img src="https://img.esa.io/uploads/production/attachments/9766/2020/03/15/40878/e786c502-340b-4ac2-845e-4ad075912311.png"  alt="imaeg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/12205695/77036498-a76a8700-69f2-11ea-9112-71a5c17378cf.png"  alt="image" width="1000"/>
 
 ## Demo environment
 
