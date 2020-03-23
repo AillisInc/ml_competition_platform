@@ -19,19 +19,20 @@
         %th Note
         %th Created At
     %tbody
-      - @competition_versions.each do |gv|
-        %tr{class: row_background_color(gv)}
-          %td= link_to gv.version, competition_version_predict_logs_path(gv.id)
-          %td= gv.dataset_location
-          %td= gv.answer_data_size
-          %td= gv.predict_logs.count
-          %td= gv.note
-          %td= gv.created_at
+      - @competition_versions.each do |cv|
+        %tr{class: row_background_color(cv)}
+          %td= link_to cv.version, competition_version_predict_logs_path(cv.id)
+          %td= cv.dataset_location
+          %td= cv.answer_data_size
+          %td= cv.predict_logs.count
+          %td= markdown_to_plain_text(cv.note)
+          %td= cv.created_at
           - if current_user.admin?
             %td
               .dropdown
                 %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
                 .dropdown-menu
-                  = link_to 'Edit', edit_competition_version_path(gv), class: 'dropdown-item'
+                  = link_to 'Details', competition_version_path(cv), class: 'dropdown-item'
+                  = link_to 'Edit', edit_competition_version_path(cv), class: 'dropdown-item'
   .d-flex.flex-row.justify-content-end
     = link_to "Go back to Competitions index", competitions_path, class: 'btn btn-primary'

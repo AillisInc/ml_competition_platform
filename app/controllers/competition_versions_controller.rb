@@ -10,6 +10,10 @@ class CompetitionVersionsController < ApplicationController
     end
   end
 
+  def show
+    @competition_version = CompetitionVersion.find(params[:id])
+  end
+
   def new
     @competition = Competition.find(params[:competition_id])
   end

@@ -1,0 +1,25 @@
+.container
+  %h1.mb-5
+    Competition details
+
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"} Key
+        %th{:scope => "col"} Value
+    %tbody
+      %tr
+        %th Title
+        %td{:scope => "row"}= @competition.title
+      %tr
+        %th Metrics Type
+        %td{:scope => "row"}= @competition.metrics_type
+      %tr
+        %th Note
+        %td{:scope => "row"}= markdown(@competition.note).html_safe
+      %tr
+        %th Created At
+        %td{:scope => "row"}= @competition.created_at
+  .d-flex.flex-row.justify-content-end
+    = link_to "Edit", edit_competition_path(@competition), class: 'btn btn-primary mr-2'
+    = link_to "Go back to Competition index", competitions_path, class: 'btn btn-primary'

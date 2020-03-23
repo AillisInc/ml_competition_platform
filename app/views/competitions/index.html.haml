@@ -22,12 +22,13 @@
           %td= link_to competition.title, competition_competition_versions_path(competition.id)
           %td= competition.metrics_type
           %td= competition.competition_versions.active.count
-          %td= competition.note
+          %td= markdown_to_plain_text(competition.note)
           %td= competition.created_at
           - if current_user.admin?
             %td
               .dropdown
                 %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
                 .dropdown-menu
+                  = link_to 'Details', competition_path(competition), class: 'dropdown-item'
                   = link_to 'Edit', edit_competition_path(competition), class: 'dropdown-item'
 
