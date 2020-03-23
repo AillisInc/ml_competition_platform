@@ -25,7 +25,7 @@
         %td{:scope => "row"}= "#{@predict_log.commit_hash}"
       %tr
         %th Note
-        %td{:scope => "row"}= simple_format(@predict_log.note)
+        %td{:scope => "row"}= markdown(@predict_log.note).html_safe
       %tr
         %th Created At
         %td{:scope => "row"}= @predict_log.created_at

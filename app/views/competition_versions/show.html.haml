@@ -1,0 +1,28 @@
+.container
+  %h1.mb-5
+    Competition Version details
+
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"} Key
+        %th{:scope => "col"} Value
+    %tbody
+      %tr
+        %th Version
+        %td{:scope => "row"}= @competition_version.version
+      %tr
+        %th Dataset Location
+        %td{:scope => "row"}= @competition_version.dataset_location
+      %tr
+        %th Answer Data Size
+        %td{:scope => "row"}= @competition_version.answer_data_size
+      %tr
+        %th Note
+        %td{:scope => "row"}= markdown(@competition_version.note).html_safe
+      %tr
+        %th Created At
+        %td{:scope => "row"}= @competition_version.created_at
+  .d-flex.flex-row.justify-content-end
+    = link_to "Edit", edit_competition_version_path(@competition_version), class: 'btn btn-primary mr-2'
+    = link_to "Go back to Competition versions index", competition_competition_versions_path(@competition_version.competition), class: 'btn btn-primary'

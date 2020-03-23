@@ -2,6 +2,6 @@
   %h1.mb-5
     Edit Competition Version
 
-  = form_for @competition do |f|
+  = form_for @competition_version do |f|
     = render 'shared/form_error', error_messages: @error_messages
     = render 'form', f: f, is_new: false

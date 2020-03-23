@@ -194,6 +194,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (2.3.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -286,6 +287,7 @@ DEPENDENCIES
   annotate
   bootsnap (>= 1.1.0)
   byebug
+  coderay
   database_cleaner
   debase
   devise
@@ -306,6 +308,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1)
   rails-erd
+  redcarpet (~> 2.3.0)
   rspec-rails
   rubocop
   ruby-debug-ide
