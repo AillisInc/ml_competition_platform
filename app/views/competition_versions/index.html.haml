@@ -25,7 +25,7 @@
           %td= cv.dataset_location
           %td= cv.answer_data_size
           %td= cv.predict_logs.count
-          %td= markdown_to_plain_text(cv.note)
+          %td= markdown_to_plain_text(cv.note).truncate(30)
           %td= cv.created_at
           - if current_user.admin?
             %td

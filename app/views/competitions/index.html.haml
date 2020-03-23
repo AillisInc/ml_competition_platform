@@ -22,7 +22,7 @@
           %td= link_to competition.title, competition_competition_versions_path(competition.id)
           %td= competition.metrics_type
           %td= competition.competition_versions.active.count
-          %td= markdown_to_plain_text(competition.note)
+          %td= markdown_to_plain_text(competition.note).truncate(30)
           %td= competition.created_at
           - if current_user.admin?
             %td
