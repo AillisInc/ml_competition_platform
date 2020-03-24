@@ -30,4 +30,6 @@
         %th Created At
         %td{:scope => "row"}= @predict_log.created_at
   .d-flex.flex-row.justify-content-end
+    - if current_user == @predict_log.user || current_user.admin?
+      = link_to "Edit", edit_predict_log_path(@predict_log), class: 'btn btn-primary mr-2'
     = link_to "Go back to prediction index", competition_version_predict_logs_path(@predict_log.competition_version), class: 'btn btn-primary'

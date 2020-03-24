@@ -1,5 +1,6 @@
 class CompetitionVersionsController < ApplicationController
-
+  before_action :only_admin!, except: [:index, :show]
+  
   def index
     @competition = Competition.find(params[:competition_id])
     @display_archive = params[:display_archive]

@@ -52,10 +52,12 @@ class PredictLogsController < ApplicationController
 
   def edit
     @predict_log = PredictLog.find(params[:id])
+    only_admin_or_owner!(@predict_log)
   end
 
   def update
     @predict_log = PredictLog.find(params[:id])
+    only_admin_or_owner!(@predict_log)
     if @predict_log.update(predict_logs_params)
       redirect_to competition_version_predict_logs_path(@predict_log.competition_version), notice: 'Successfully updated prediction'
     else
@@ -66,6 +68,7 @@ class PredictLogsController < ApplicationController
 
   def destroy
     predict_log = PredictLog.find(params[:id])
+    only_admin_or_owner!(predict_log)
     predict_log.destroy!
     redirect_to competition_version_predict_logs_path(predict_log.competition_version), notice: 'Successfully deleted prediction'
   end

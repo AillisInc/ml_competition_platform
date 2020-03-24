@@ -21,5 +21,6 @@
         %th Created At
         %td{:scope => "row"}= @competition.created_at
   .d-flex.flex-row.justify-content-end
-    = link_to "Edit", edit_competition_path(@competition), class: 'btn btn-primary mr-2'
+    - if current_user.admin?
+      = link_to "Edit", edit_competition_path(@competition), class: 'btn btn-primary mr-2'
     = link_to "Go back to Competition index", competitions_path, class: 'btn btn-primary'

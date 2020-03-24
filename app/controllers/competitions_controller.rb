@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CompetitionsController < ApplicationController
-  before_action :only_admin!, except: [:index]
+  before_action :only_admin!, except: [:index, :show]
 
   def index
     @display_archive = params[:display_archive]
