@@ -5,3 +5,10 @@ h1{
 h2{
   font-size: 1.8rem;
 }
+
+.CodeRay {
+  background-color: #dee2e6;
+  padding: 7px;
+  width: 90%;
+  border-radius: 5px;
+}
