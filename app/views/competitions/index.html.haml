@@ -24,11 +24,11 @@
           %td= competition.competition_versions.active.count
           %td= markdown_to_plain_text(competition.note).truncate(30)
           %td= competition.created_at
-          - if current_user.admin?
-            %td
-              .dropdown
-                %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
-                .dropdown-menu
-                  = link_to 'Details', competition_path(competition), class: 'dropdown-item'
+          %td
+            .dropdown
+              %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
+              .dropdown-menu
+                = link_to 'Details', competition_path(competition), class: 'dropdown-item'
+                - if current_user.admin?
                   = link_to 'Edit', edit_competition_path(competition), class: 'dropdown-item'
 

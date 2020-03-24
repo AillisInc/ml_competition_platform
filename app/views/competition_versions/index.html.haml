@@ -27,12 +27,12 @@
           %td= cv.predict_logs.count
           %td= markdown_to_plain_text(cv.note).truncate(30)
           %td= cv.created_at
-          - if current_user.admin?
-            %td
-              .dropdown
-                %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
-                .dropdown-menu
-                  = link_to 'Details', competition_version_path(cv), class: 'dropdown-item'
+          %td
+            .dropdown
+              %button.btn.dropdown-toggle{data: {toggle: 'dropdown'}}
+              .dropdown-menu
+                = link_to 'Details', competition_version_path(cv), class: 'dropdown-item'
+                - if current_user.admin?
                   = link_to 'Edit', edit_competition_version_path(cv), class: 'dropdown-item'
   .d-flex.flex-row.justify-content-end
     = link_to "Go back to Competitions index", competitions_path, class: 'btn btn-primary'
